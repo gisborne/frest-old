@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+def init
+  name = ARGV[1]
+  cp '../templates/init', name
+end
+
+case ARGV[0]
+  when 'init'
+    init
+end
