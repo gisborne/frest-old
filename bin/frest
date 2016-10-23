@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
+require 'fileutils'
 
 def init
   name = ARGV[1]
-  cp '../templates/init', name
+  FileUtils.cp File.expand_path('../../lib/templates/init', __FILE__), name
 end
 
 case ARGV[0]

@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Guyren Howe"]
   spec.email         = ["guyren@relevantlogic.com"]
 
-  spec.summary       = %{User modifiable application framework.}
+  spec.summary       = "User modifiable application framework."
   spec.homepage      = "http://github.com/gisborne/frest"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_dependency 'sqlite3'
+  spec.add_runtime_dependency 'sqlite3'
 
   spec.executables << 'frest'
 end
