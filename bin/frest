@@ -1,12 +1,19 @@
 #!/usr/bin/env ruby
 require 'fileutils'
+require 'frest/server'
 
 def init
-  name = ARGV[1]
-  FileUtils.cp File.expand_path('../../lib/templates/init', __FILE__), name
+  require 'frest/server/init'
+  Frest::Server.init
+end
+
+def start
+  Frest::Server.start
 end
 
 case ARGV[0]
   when 'init'
     init
+  when 'start'
+    start
 end

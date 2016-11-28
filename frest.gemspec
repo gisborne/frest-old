@@ -22,6 +22,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_runtime_dependency 'sqlite3'
+  spec.add_runtime_dependency 'rack'
+  spec.add_runtime_dependency 'rbnacl'
+  spec.add_runtime_dependency 'google-api-client'
+  spec.add_runtime_dependency 'google-id-token'
 
   spec.executables << 'frest'
 end
