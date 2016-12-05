@@ -10,7 +10,7 @@ module Frest
                     ENV['google_client_id'],
                     ENV['google_client_secret']
     )
-    @login_page = Frest::ERBFile.new(client_id: @client_id).render('assets/html/google_login.html.erb')
+    @login_page = Frest::ERBFile.new(client_id: @client_id.id).render('assets/html/google_login.html.erb')
 
     # configure do
     #   Google::Apis::ClientOptions.default.application_name = 'FREST'
