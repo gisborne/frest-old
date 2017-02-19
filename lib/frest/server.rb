@@ -1,25 +1,24 @@
 module Frest
   class Server
     require 'rack'
-    require 'frest/google_authorizer'
+    require 'frest/dumb_authorizer'
+    require 'frest/path_store'
 
     def self.start
       new.start
     end
 
     def start
-      # client = Rack::OAuth2::Client.new(
-      #   identifier: ENV['client_id'],
-      #   secret: ENV['client_secret'],
-      #   redirect_uri: ENV['redirect_uri'],
-      #   host: ENV['host']
-      # )
-
       app = Proc.new do |env|
         req = Rack::Request.new(env)
-        token = Frest::GoogleAuthorizer.authorize(req)
+        res = Rack::Response.new
 
-        ['200', {'Content-Type' => 'text/html'}, [Frest::GoogleAuthorizer::login_page]]
+        Frest::DumbAuthorizer.authorize(req: req, res: res) do |req:, res:, cookie:, **c|
+          res.write cookie || Frest::DumbAuthorizer::login_page
+          res.status = 200
+        end
+
+        res.finish
       end
 
 

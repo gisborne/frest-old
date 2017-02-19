@@ -58,8 +58,6 @@ module Frest
       end
     end
 
-    private
-
     def path_to_array(path)
       [*(path || [])]
     end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    frest (0.0.1)
+    frest (0.0.3)
       google-api-client
       google-id-token
       rack
@@ -90,4 +90,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
